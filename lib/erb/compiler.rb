@@ -149,11 +149,7 @@ class ERB::Compiler # :nodoc:
       end
 
       line[0] = ''
-      if line[0] == ?%
-        @scan_line.call(line, &block)
-      else
-        yield(PercentLine.new(line.chomp))
-      end
+      yield(PercentLine.new(line.chomp))
     end
 
     def scan_line(line)
